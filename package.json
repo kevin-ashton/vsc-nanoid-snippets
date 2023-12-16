@@ -1,0 +1,90 @@
+{
+  "name": "nanoid-snippets",
+  "displayName": "nanoid-snippets",
+  "description": "Create code snippets that inject shortortid",
+  "version": "0.0.1",
+  "type": "module",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "nanoid-snippets.insert-snip1",
+        "title": "Insert snippet 1 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip2",
+        "title": "Insert snippet 2 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip3",
+        "title": "Insert snippet 3 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip4",
+        "title": "Insert snippet 4 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip5",
+        "title": "Insert snippet 5 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip6",
+        "title": "Insert snippet 6 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip7",
+        "title": "Insert snippet 7 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip8",
+        "title": "Insert snippet 8 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip9",
+        "title": "Insert snippet 9 with nanoid"
+      },
+      {
+        "command": "nanoid-snippets.insert-snip10",
+        "title": "Insert snippet 10 with nanoid"
+      }
+    ],
+    "configuration": {
+      "properties": {
+        "nanoid-snippets.snip1": {
+          "type": "string",
+          "default": "console.log($1, __SHORTID__)",
+          "description": "Snippet 1 with nanoid"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "nanoid": "^5.0.4"
+  }
+}
