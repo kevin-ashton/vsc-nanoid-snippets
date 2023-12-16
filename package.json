@@ -22,6 +22,7 @@
     "onCommand:nanoid-snippets.insert-snip9"
   ],
   "main": "./out/extension.js",
+  "icon": "images/icon.png",
   "contributes": {
     "commands": [
       {
@@ -126,9 +127,15 @@
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "install-vsce": "npm install -g @vscode/vsce",
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
-  "repository": "https://github.com:kevin-ashton/vsc-nanoid-snippets.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:kevin-ashton/vsc-nanoid-snippets"
+  },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
