@@ -1,19 +1,33 @@
 {
-  "name": "nanoid-snippets",
-  "displayName": "nanoid-snippets",
-  "description": "Create code snippets that inject shortortid",
-  "version": "0.0.1",
-  "type": "module",
+  "name": "vsc-nanoid-snippets",
+  "displayName": "Snippets with nanoid",
+  "description": "Create code snippets that inject nanoid",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:nanoid-snippets.insert-snip0",
+    "onCommand:nanoid-snippets.insert-snip1",
+    "onCommand:nanoid-snippets.insert-snip2",
+    "onCommand:nanoid-snippets.insert-snip3",
+    "onCommand:nanoid-snippets.insert-snip4",
+    "onCommand:nanoid-snippets.insert-snip5",
+    "onCommand:nanoid-snippets.insert-snip6",
+    "onCommand:nanoid-snippets.insert-snip7",
+    "onCommand:nanoid-snippets.insert-snip8",
+    "onCommand:nanoid-snippets.insert-snip9"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
+      {
+        "command": "nanoid-snippets.insert-snip0",
+        "title": "Insert snippet 1 with nanoid"
+      },
       {
         "command": "nanoid-snippets.insert-snip1",
         "title": "Insert snippet 1 with nanoid"
@@ -49,18 +63,59 @@
       {
         "command": "nanoid-snippets.insert-snip9",
         "title": "Insert snippet 9 with nanoid"
-      },
-      {
-        "command": "nanoid-snippets.insert-snip10",
-        "title": "Insert snippet 10 with nanoid"
       }
     ],
     "configuration": {
       "properties": {
+        "nanoid-snippets.snip0": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 0 with nanoid"
+        },
         "nanoid-snippets.snip1": {
           "type": "string",
-          "default": "console.log($1, __SHORTID__)",
+          "default": "__NANOID__",
           "description": "Snippet 1 with nanoid"
+        },
+        "nanoid-snippets.snip2": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 2 with nanoid"
+        },
+        "nanoid-snippets.snip3": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 3 with nanoid"
+        },
+        "nanoid-snippets.snip4": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 4 with nanoid"
+        },
+        "nanoid-snippets.snip5": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 5 with nanoid"
+        },
+        "nanoid-snippets.snip6": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 6 with nanoid"
+        },
+        "nanoid-snippets.snip7": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 7 with nanoid"
+        },
+        "nanoid-snippets.snip8": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 8 with nanoid"
+        },
+        "nanoid-snippets.snip9": {
+          "type": "string",
+          "default": "__NANOID__",
+          "description": "Snippet 9 with nanoid"
         }
       }
     }
@@ -73,6 +128,7 @@
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
   },
+  "repository": "https://github.com:kevin-ashton/vsc-nanoid-snippets.git",
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",

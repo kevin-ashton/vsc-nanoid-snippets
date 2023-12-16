@@ -1,31 +1,42 @@
 import * as vscode from "vscode";
-import { customAlphabet } from "nanoid";
-const alphabet =
-  "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-const nanoid = customAlphabet(alphabet, 10);
+import { SnippetString } from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log(
-    'Congratulations, your extension "nanoid-snippets" is now active!'
-  );
+export async function activate(context: vscode.ExtensionContext) {
+  const nanoidModule = await import("nanoid");
+  // https://zelark.github.io/nano-id-cc/
+  // 129M for 1% chance of collision
+  const alphabet =
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  const nanoid = nanoidModule.customAlphabet(alphabet, 10);
 
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
-  let disposable = vscode.commands.registerCommand(
-    "nanoid-snippets.helloWorld",
-    () => {
-      // The code you place here will be executed every time your command is executed
-      // Display a message box to the user
-      vscode.window.showInformationMessage("Hello World from nanoid-snippets!");
-    }
-  );
+  for (let i = 0; i < 10; i++) {
+    context.subscriptions.push(
+      vscode.commands.registerTextEditorCommand(
+        `nanoid-snippets.insert-snip${i}`,
+        (textEditor, edit) => {
+          const editor = vscode.window.activeTextEditor;
+          if (!editor) {
+            console.log("No editor");
+            return;
+          }
+          textEditor.selections.forEach((selection) => {
+            const config = vscode.workspace.getConfiguration("nanoid-snippets");
 
-  context.subscriptions.push(disposable);
+            const snip: string | undefined = config.get(`snip${i}`);
+
+            if (!snip) {
+              console.log("No snip");
+              return;
+            }
+
+            editor.insertSnippet(
+              new SnippetString(snip.replace("__NANOID__", nanoid()))
+            );
+          });
+        }
+      )
+    );
+  }
 }
 
 // This method is called when your extension is deactivated
