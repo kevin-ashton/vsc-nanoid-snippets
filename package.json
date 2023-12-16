@@ -1,8 +1,9 @@
 {
   "name": "vsc-nanoid-snippets",
-  "displayName": "Snippets with nanoid",
+  "displayName": "Nanoid Snippets",
   "description": "Create code snippets that inject nanoid",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "publisher": "kevin-ashton",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -21,8 +22,7 @@
     "onCommand:nanoid-snippets.insert-snip8",
     "onCommand:nanoid-snippets.insert-snip9"
   ],
-  "main": "./out/extension.js",
-  "icon": "images/icon.png",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -121,20 +121,22 @@
       }
     }
   },
-  "scripts": {
-    "vscode:prepublish": "yarn run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "yarn run compile && yarn run lint",
-    "lint": "eslint src --ext ts",
-    "test": "vscode-test",
-    "install-vsce": "npm install -g @vscode/vsce",
-    "package": "vsce package",
-    "publish": "vsce publish"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com:kevin-ashton/vsc-nanoid-snippets"
+    "url": "https://github.com/kevin-ashton/vsc-nanoid-snippets"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test",
+    "build-for-marketplace": "vsce package",
+    "open-marketplace": "open https://marketplace.visualstudio.com/manage/publishers/kevin-ashton"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
@@ -145,7 +147,10 @@
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.8",
     "eslint": "^8.54.0",
-    "typescript": "^5.3.2"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "nanoid": "^5.0.4"

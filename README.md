@@ -1,4 +1,4 @@
-# vsc-nanoid-snippets
+# Nanoid Snippets
 
 Add nanoids to your snippets. By automatically adding an id it makes it far easier to track down the source of annoying logs or origin of an error later on. Common use cases might include:
 
