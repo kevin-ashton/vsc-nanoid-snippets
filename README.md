@@ -6,7 +6,9 @@ Add nanoids to your snippets. By automatically adding an id it makes it far easi
 `console.log($1,'__NANOID__')` - Create a log with a nanoid
 `__NANOID__` - Insert a nanoid at cursor
 
-![Example Usage](images/example.gif)
+## Example
+
+<img src="images/example.gif" width="500"/>
 
 # Configuration
 
