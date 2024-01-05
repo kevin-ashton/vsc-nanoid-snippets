@@ -1,10 +1,17 @@
 # Nanoid Snippets
 
-Add nanoids to your snippets. By automatically adding an id it makes it far easier to track down the source of annoying logs or origin of an error later on. Common use cases might include:
+Inserting nanoids at your cursor is very powerful and like other extensions this is supported.
 
+However, it's even more powerful to create some snippets for common logging/error patterns that automatically insert a nanoid. This saves hours of debugging and tracing down the origin of logs/errors. A few common use cases when this is useful.
+
+* No more wondering where some random log is coming from. How many hours have devs wasted trying to fine an annoying `console.log` that keeps outputting some variable? With the nanoid you can always find the origin of a log and squash it if desired.
+* By inserting it into errors you can actually find where in the code the error originated from. Sourcemaps are a great idea in theory but often are broken and make them worthless in tracking down the origin of an error, hence a unique, searchable string is far more useful.
+
+Here are some common snippets. The examples are in javascript but can be adjusted for any language.
+
+* `__NANOID__` - Insert a nanoid at cursor
 * `new Error('$1 __NANOID__')` - Create an error with a nanoid
 * `console.log($1,'__NANOID__')` - Create a log with a nanoid
-* `__NANOID__` - Insert a nanoid at cursor
 
 ## Demo
 
@@ -39,4 +46,8 @@ keybindings.json
     "command": "nanoid-snippets.insert-snip9"
   },
 ```
+
+## Limitations
+
+* When using multiple cursors it currently does not support a unique nanoid each cursor. A PR is welcome if someone wants to add it. Send me an email at kevin[dot]m[dot]ashton[at]gmail[dot]com if you do though. I disable most notifications from things like Github, too much noise in life already.
 
