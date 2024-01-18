@@ -2,7 +2,7 @@
   "name": "vsc-nanoid-snippets",
   "displayName": "Nanoid Snippets",
   "description": "Create code snippets that inject nanoid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "kevin-ashton",
   "engines": {
     "vscode": "^1.85.0"

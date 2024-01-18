@@ -22,16 +22,22 @@ export async function activate(context: vscode.ExtensionContext) {
           textEditor.selections.forEach((selection) => {
             const config = vscode.workspace.getConfiguration("nanoid-snippets");
 
-            const snip: string | undefined = config.get(`snip${i}`);
+            let snip: string | undefined = config.get(`snip${i}`);
 
             if (!snip) {
               console.log("No snip");
               return;
             }
 
-            editor.insertSnippet(
-              new SnippetString(snip.replace("__NANOID__", nanoid()))
+            const now = new Date();
+            snip = snip.replace(
+              "__HOURS_MINUTES_SECONDS__",
+              `${now.getHours()}${now.getMinutes()}${now.getSeconds()}`
             );
+
+            snip = snip.replace("__NANOID__", nanoid());
+
+            editor.insertSnippet(new SnippetString(snip));
           });
         }
       )

@@ -10,8 +10,10 @@ However, it's even more powerful to create some snippets for common logging/erro
 Here are some common snippets. The examples are in javascript but can be adjusted for any language.
 
 * `__NANOID__` - Insert a nanoid at cursor
+* `__HOURS_MINUTES_SECONDS__` - Extra keyword to insert the current hour and seconds. Useful when you want to drop a bunch of logs that are somewhat sequencial
 * `new Error('$1 __NANOID__')` - Create an error with a nanoid
 * `console.log($1,'__NANOID__')` - Create a log with a nanoid
+
 
 ## Demo
 
