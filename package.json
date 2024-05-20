@@ -138,10 +138,11 @@
     "test": "vscode-test",
     "-----": "-----",
     "note1:install-vce": "npm install -g @vscode/vsce",
+    "note2":"To run a vsc extension you just debug the extensions.ts file",
     "debug": "f5 (or debug) in extensions.ts  (start yarn watch as well)",
     "build-for-marketplace": "vsce package",
     "open-marketplace": "open https://marketplace.visualstudio.com/manage/publishers/kevin-ashton",
-    "note2":"Upload the new vsix file manually. Not worth tying to automate this at this point."
+    "note3":"Upload the new vsix file manually. Not worth tying to automate this at this point."
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
